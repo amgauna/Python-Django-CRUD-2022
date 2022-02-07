@@ -30,3 +30,6 @@ pip freeze > requirements.txt
 cd c:/Python
 heroku login
 pip install django_heroku
+
+python manage.py migrate
+
