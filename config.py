@@ -12,6 +12,8 @@ pip install django
 django-admin startproject project .
 python manage.py startapp app
 
+python manage.py runserver
+
 python
 pip install mysqlclient-1.4.6-cp38-cp38-win32.whl
 python manage.py migrate
