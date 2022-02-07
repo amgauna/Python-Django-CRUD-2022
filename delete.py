@@ -8,3 +8,10 @@ from app.views import delete
 urlpatterns = [
     path('delete/<int:pk>/', delete, name='delete'),
 ]
+
+# Já vamos criar a função view relativa ao delete:
+
+def delete(request, pk):
+    db = Carros.objects.get(pk=pk)
+    db.delete()
+    return redirect('home')
