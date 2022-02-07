@@ -1,3 +1,7 @@
+import django_heroku
+django_heroku.settings(locals())
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -32,6 +36,19 @@ DATABASES = {
 }
 
 
-import django_heroku
-django_heroku.settings(locals())
+mysql://393948949:9383939@us.host/heroku_dkkdid?
+O código acima traz o tipo do banco://usuario:senha@host/nome_do_banco
+
+# Esses dados deverão ser substituidos em project/settings:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'heroku_129a8ecb4804d59',
+        'PORT': '3306',
+        'HOST': 'us-cdbr-iron-east-01.cleardb.net',
+        'USER': 'bab970df28cb63',
+        'PASSWORD': '37111d26',
+    }
+}
 
