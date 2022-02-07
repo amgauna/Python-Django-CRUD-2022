@@ -2,6 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from app.forms import CarrosForm
 from app.models import Carros
+from django.contrib import admin
+from django.urls import path
+from app.views import delete
+
 
 def form(request):
     return render(request, 'form.html')
@@ -72,10 +76,6 @@ def update(request, pk):
 # Apagar dados no Python com Ajax
 # Vamos criar a url que será responsável por eliminar os dados no nosso banco:
 
-from django.contrib import admin
-from django.urls import path
-from app.views import delete
-
 urlpatterns = [
     path('delete/<int:pk>/', delete, name='delete'),
 ]
@@ -86,3 +86,12 @@ def delete(request, pk):
     db = Carros.objects.get(pk=pk)
     db.delete()
     return redirect('home')
+
+# Vamos chamar o módulo paginator para facilitar o nosso trabalho com a separação dos dados em páginas:
+def home(request):
+    data = {}
+    all = Carros.objects.all()
+    paginator = Paginator(all, 2)
+    pages = request.GET.get('page')
+    data['db'] = paginator.get_page(pages)
+    return render(request, 'index.html', data)
