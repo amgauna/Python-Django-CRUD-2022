@@ -11,3 +11,12 @@ def home(request):
 # Create your views here.
 def home(request):
     return render(request, 'index.html')
+
+# Podemos também passar comandos de dados vindos do backend para o 
+# frontend utilizando {%%} e impressões literais usando {{}}
+
+{% if carro == 'Fiat Uno' %}
+    Esse é um carro {{carro}}
+{% else %}
+    Não tem carro
+{% endif %}
