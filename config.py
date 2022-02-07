@@ -27,3 +27,6 @@ import django_heroku
 django_heroku.settings(locals())
 pip freeze > requirements.txt
 
+cd c:/Python
+heroku login
+pip install django_heroku
