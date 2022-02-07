@@ -15,6 +15,13 @@
     <div class="col-8 m-auto pt-3 pb-2 text-center">
         <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Editar</a>
         <a href="/form" class="btn btn-success">Adicionar</a>
+        
+        <!-- Vamos chamar o link responsável por deletar os dados na index.html. 
+             No fim do index.html também vamos carregar os arquivos estáticos:  -->
+        <a href="/delete/{{dbs.id}}/" class="btn btn-danger btnDel">Deletar</a>
+
+{% load static %}
+<script src="{% static 'javascript.js' %}"></script>
     </div>
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
