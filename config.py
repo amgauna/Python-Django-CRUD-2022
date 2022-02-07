@@ -19,3 +19,11 @@ pip install mysqlclient-1.4.6-cp38-cp38-win32.whl
 python manage.py migrate
 python manage.py runserver
 pip install mysql-connector-python
+
+cd c:/Python
+heroku login
+pip install django_heroku
+import django_heroku
+django_heroku.settings(locals())
+pip freeze > requirements.txt
+
